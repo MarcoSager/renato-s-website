@@ -839,6 +839,8 @@
     .gallery-item:nth-child(6) { grid-column: span 4; }
     .gallery-item:nth-child(7) { grid-column: span 4; }
     .gallery-item:nth-child(8) { grid-column: span 4; }
+    .gallery-item:nth-child(7) .gallery-bg { background-image: url('gallery-china-aftermovie-thumb.jpg'); background-size: cover; background-position: center; }
+    .gallery-item:nth-child(8) .gallery-bg { background-image: url('gallery-theatro-marrakech-thumb.jpg'); background-size: cover; background-position: center; }
 
     .gallery-bg {
       position: absolute;
@@ -2076,17 +2078,21 @@
           </div>
         </div>
 
-        <div class="gallery-item reveal reveal-delay-1 gallery-placeholder" role="listitem" style="cursor:default;">
+        <div class="gallery-item reveal reveal-delay-1" role="listitem" data-video-type="local" data-video-src="gallery-china-aftermovie.mp4" style="cursor:pointer;">
           <div class="gallery-bg" aria-hidden="true"></div>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0.2;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+          <div class="gallery-play-btn" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="1"/><path d="M10 8l6 4-6 4V8z" fill="white"/></svg></div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">China Aftermovie</div>
+            <div class="gallery-caption-sub">China Tour</div>
           </div>
         </div>
 
-        <div class="gallery-item reveal reveal-delay-2 gallery-placeholder" role="listitem" style="cursor:default;">
+        <div class="gallery-item reveal reveal-delay-2" role="listitem" data-video-type="local" data-video-src="gallery-theatro-marrakech.mp4" style="cursor:pointer;">
           <div class="gallery-bg" aria-hidden="true"></div>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0.2;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+          <div class="gallery-play-btn" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="1"/><path d="M10 8l6 4-6 4V8z" fill="white"/></svg></div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">Theatro Marrakech</div>
+            <div class="gallery-caption-sub">Marrakech, Morocco</div>
           </div>
         </div>
       </div>
