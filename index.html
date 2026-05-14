@@ -303,13 +303,6 @@
       transform: translate(-50%, -50%);
       width: max(100vw, 177.78vh);
       height: max(56.25vw, 100vh);
-      pointer-events: none;
-    }
-    #yt-player iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
       opacity: 0.5;
       pointer-events: none;
       border: none;
@@ -1643,7 +1636,15 @@
   <section id="hero" aria-label="Hero">
     <!-- YouTube video background -->
     <div class="hero-video-wrap" aria-hidden="true">
-      <div id="yt-player"></div>
+      <iframe
+        id="yt-player"
+        src="https://www.youtube.com/embed/gxf02K0fxAw?si=5CterCQUXxTqsyAv&autoplay=1&mute=1&loop=1&playlist=gxf02K0fxAw&controls=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&playsinline=1&rel=0"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
     </div>
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-beams" aria-hidden="true"></div>
@@ -2448,40 +2449,6 @@
       });
     });
 
-    // ---- YouTube IFrame API background player ----
-    window.onYouTubeIframeAPIReady = function() {
-      new YT.Player('yt-player', {
-        width: '100%',
-        height: '100%',
-        videoId: 'gxf02K0fxAw',
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          loop: 1,
-          playlist: 'gxf02K0fxAw',
-          controls: 0,
-          disablekb: 1,
-          fs: 0,
-          iv_load_policy: 3,
-          modestbranding: 1,
-          playsinline: 1,
-          rel: 0,
-          showinfo: 0
-        },
-        events: {
-          onReady: function(e) {
-            e.target.mute();
-            e.target.playVideo();
-          },
-          onStateChange: function(e) {
-            if (e.data === 0) e.target.playVideo();
-          }
-        }
-      });
-    };
-    var ytScript = document.createElement('script');
-    ytScript.src = 'https://www.youtube.com/iframe_api';
-    document.head.appendChild(ytScript);
   </script>
 </body>
 </html>
