@@ -1638,7 +1638,14 @@
   <section id="hero" aria-label="Hero">
     <!-- YouTube video background -->
     <div class="hero-video-wrap" aria-hidden="true">
-      <div id="yt-player"></div>
+      <iframe
+        id="yt-player"
+        src="https://www.youtube.com/embed/gxf02K0fxAw?autoplay=1&mute=1&loop=1&playlist=gxf02K0fxAw&controls=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&playsinline=1&rel=0&showinfo=0"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="Renato S Live Set"
+      ></iframe>
     </div>
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-beams" aria-hidden="true"></div>
@@ -1657,7 +1664,6 @@
           <span class="line"><span class="line-inner">Experiences</span></span>
         </h1>
 
-        <p class="hero-sub">International DJ &nbsp;•&nbsp; Luxury Events &nbsp;•&nbsp; Nightlife Entertainment</p>
 
         <div class="hero-actions">
           <a href="#booking" class="btn-primary" aria-label="Book Renato S for your event">
@@ -2444,36 +2450,18 @@
       });
     });
 
-    // ---- YouTube background player ----
-    var ytPlayer;
-    window.onYouTubeIframeAPIReady = function() {
-      ytPlayer = new YT.Player('yt-player', {
-        videoId: 'gxf02K0fxAw',
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          loop: 1,
-          playlist: 'gxf02K0fxAw',
-          controls: 0,
-          showinfo: 0,
-          rel: 0,
-          iv_load_policy: 3,
-          modestbranding: 1,
-          playsinline: 1
-        },
-        events: {
-          onReady: function(e) { e.target.playVideo(); },
-          onStateChange: function(e) {
-            if (e.data === YT.PlayerState.ENDED) e.target.playVideo();
-          }
-        }
-      });
-    };
-    // Load YouTube IFrame API
+    // ---- YouTube background player — restart on end via postMessage ----
     (function() {
-      var tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      document.head.appendChild(tag);
+      var iframe = document.getElementById('yt-player');
+      window.addEventListener('message', function(e) {
+        try {
+          var data = JSON.parse(e.data);
+          // state 0 = ended, restart
+          if (data.event === 'onStateChange' && data.info === 0) {
+            iframe.src = iframe.src;
+          }
+        } catch(err) {}
+      });
     })();
   </script>
 </body>
