@@ -215,20 +215,22 @@
       gap: 16px;
     }
 
-    .nav-cta {
-      display: inline-block;
-      background: var(--gold);
-      color: #000;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 10px 24px;
-      border-radius: var(--radius-sm);
-      white-space: nowrap;
-      transition: opacity var(--dur-fast), transform var(--dur-fast);
+    .nav-socials {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+    .nav-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      color: var(--text-secondary);
+      transition: color var(--dur-fast), transform var(--dur-fast);
+    }
+    .nav-socials a:hover { color: var(--gold); transform: translateY(-2px); }
+    .nav-socials svg { width: 18px; height: 18px; }
 
     .nav-hamburger {
       display: none;
@@ -1588,7 +1590,7 @@
 
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      .nav-right .nav-cta { display: none; }
+      .nav-right .nav-socials { display: none; }
 
       .hero-headline { font-size: clamp(52px, 14vw, 80px); }
 
@@ -1724,7 +1726,20 @@
         </ul>
 
         <div class="nav-right">
-          <a href="#booking" class="nav-cta">Book Now</a>
+          <div class="nav-socials">
+            <a href="https://www.instagram.com/renato_s_official" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@renato_s_official" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.13a8.16 8.16 0 004.77 1.52V7.21a4.85 4.85 0 01-1-.52z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@RenatoS" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.13-2.14C19.51 3.5 12 3.5 12 3.5s-7.51 0-9.37.55A3.02 3.02 0 00.5 6.19C0 8.06 0 12 0 12s0 3.94.5 5.81a3.02 3.02 0 002.13 2.14C4.49 20.5 12 20.5 12 20.5s7.51 0 9.37-.55a3.02 3.02 0 002.13-2.14C24 15.94 24 12 24 12s0-3.94-.5-5.81zM9.75 15.5v-7l6.25 3.5-6.25 3.5z"/></svg>
+            </a>
+            <a href="https://soundcloud.com/renato-s" target="_blank" rel="noopener" aria-label="SoundCloud">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.175 12.225c-.015 0-.03.002-.044.003C.507 12.28 0 12.81 0 13.456c0 .658.535 1.19 1.196 1.19h14.23c.66 0 1.196-.532 1.196-1.19V9.402c0-.497-.305-.925-.742-1.108a5.938 5.938 0 00-2.248-.437c-.656 0-1.284.126-1.856.353a7.45 7.45 0 00-6.601-4.01C2.54 4.2 0 6.74 0 9.876c0 .823.175 1.605.49 2.31a1.19 1.19 0 00.685.04zm20.655-2.113a2.17 2.17 0 00-2.17 2.17v.274c0 1.199.971 2.17 2.17 2.17S24 13.755 24 12.556v-.274a2.17 2.17 0 00-2.17-2.17z"/></svg>
+            </a>
+          </div>
           <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
