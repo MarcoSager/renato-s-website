@@ -1386,11 +1386,11 @@
     /* Fallback grid shown if no widget loaded */
     .instagram-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 4px;
     }
-    @media (max-width: 768px) {
-      .instagram-grid { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 480px) {
+      .instagram-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .instagram-cell {
       aspect-ratio: 1;
