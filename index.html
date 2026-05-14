@@ -6,6 +6,10 @@
   <meta name="description" content="Renato S — International DJ & Nightlife Entertainment. Luxury events, club residencies, festivals worldwide." />
   <title>Renato S — International DJ &amp; Nightlife Entertainment</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23060606'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='32' fill='%23D4AF37'>RS</text></svg>" />
+  <link rel="icon" type="image/jpeg" href="renato-header.jpg" sizes="any" />
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -178,13 +182,15 @@
     }
 
     .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 0.1em;
-      color: var(--text-primary);
       justify-self: start;
+      display: flex;
+      align-items: center;
     }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
 
     .nav-links {
       display: flex;
@@ -1441,9 +1447,11 @@
     }
 
     .footer-brand .nav-logo {
-      display: block;
-      font-size: 36px;
-      margin-bottom: 12px;
+      display: inline-flex;
+      margin-bottom: 16px;
+    }
+    .footer-brand .nav-logo img {
+      height: 48px;
     }
     .footer-tagline {
       font-size: 13px;
@@ -1700,7 +1708,7 @@
   <nav id="main-nav" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
-        <a href="#" class="nav-logo" aria-label="Renato S Home">RENATO<span>S</span></a>
+        <a href="#" class="nav-logo" aria-label="Renato S Home"><img src="renato-header.jpg" alt="Renato S"></a>
 
         <ul class="nav-links" role="list">
           <li><a href="#about">About</a></li>
@@ -2414,7 +2422,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <span class="nav-logo">RENATO<span>S</span></span>
+          <a href="#" class="nav-logo" aria-label="Renato S Home"><img src="renato-header.jpg" alt="Renato S"></a>
           <p class="footer-tagline">International DJ &amp; Nightlife Entertainment. Amsterdam &amp; Bangkok based. Worldwide availability.</p>
         </div>
 
