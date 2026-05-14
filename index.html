@@ -821,7 +821,7 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(3, 200px);
+      grid-template-rows: repeat(3, 220px);
       gap: 12px;
     }
 
@@ -832,11 +832,13 @@
       cursor: pointer;
     }
     .gallery-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
-    .gallery-item:nth-child(2) { grid-column: span 4; grid-row: span 1; }
-    .gallery-item:nth-child(3) { grid-column: span 3; grid-row: span 1; }
-    .gallery-item:nth-child(4) { grid-column: span 4; grid-row: span 2; }
-    .gallery-item:nth-child(5) { grid-column: span 3; grid-row: span 1; }
-    .gallery-item:nth-child(6) { grid-column: span 7; grid-row: span 1; }
+    .gallery-item:nth-child(2) { grid-column: span 4; }
+    .gallery-item:nth-child(3) { grid-column: span 3; }
+    .gallery-item:nth-child(4) { grid-column: span 4; }
+    .gallery-item:nth-child(5) { grid-column: span 3; }
+    .gallery-item:nth-child(6) { grid-column: span 4; }
+    .gallery-item:nth-child(7) { grid-column: span 4; }
+    .gallery-item:nth-child(8) { grid-column: span 4; }
 
     .gallery-bg {
       position: absolute;
@@ -2071,6 +2073,20 @@
           <div class="gallery-caption">
             <div class="gallery-caption-title">EDC China</div>
             <div class="gallery-caption-sub">Suzhou, China</div>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal reveal-delay-1 gallery-placeholder" role="listitem" style="cursor:default;">
+          <div class="gallery-bg" aria-hidden="true"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0.2;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal reveal-delay-2 gallery-placeholder" role="listitem" style="cursor:default;">
+          <div class="gallery-bg" aria-hidden="true"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;opacity:0.2;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
           </div>
         </div>
       </div>
