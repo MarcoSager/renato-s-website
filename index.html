@@ -848,30 +848,23 @@
       filter: brightness(1.15);
     }
 
-    .gallery-item:nth-child(1) .gallery-bg {
-      background-image: url('img-mmexport-opt.jpg');
-      background-size: cover; background-position: center;
-    }
-    .gallery-item:nth-child(2) .gallery-bg {
-      background-image: url('img-brave-bar-opt.jpg');
-      background-size: cover; background-position: center;
-    }
-    .gallery-item:nth-child(3) .gallery-bg {
-      background-image: url('img-insanity-opt.jpg');
-      background-size: cover; background-position: center;
-    }
-    .gallery-item:nth-child(4) .gallery-bg {
-      background-image: url('img-duplex-opt.jpg');
-      background-size: cover; background-position: center;
-    }
-    .gallery-item:nth-child(5) .gallery-bg {
-      background-image: url('miu-club-opt.jpg');
-      background-size: cover; background-position: center;
-    }
-    .gallery-item:nth-child(6) .gallery-bg {
-      background-image: url('img-retro-prague-opt.jpg');
-      background-size: cover; background-position: center;
-    }
+    .gallery-item:nth-child(1) .gallery-bg { background-image: url('https://img.youtube.com/vi/OBKI1xWjFoc/maxresdefault.jpg'); background-size: cover; background-position: center; }
+    .gallery-item:nth-child(2) .gallery-bg { background-image: url('https://img.youtube.com/vi/gxf02K0fxAw/maxresdefault.jpg'); background-size: cover; background-position: center; }
+    .gallery-item:nth-child(3) .gallery-bg { background-image: url('gallery-pitt-kl-thumb.jpg'); background-size: cover; background-position: center; }
+    .gallery-item:nth-child(4) .gallery-bg { background-image: url('gallery-shoko-barcelona-thumb.jpg'); background-size: cover; background-position: center; }
+    .gallery-item:nth-child(5) .gallery-bg { background-image: url('gallery-latin-village-thumb.jpg'); background-size: cover; background-position: center; }
+    .gallery-item:nth-child(6) .gallery-bg { background-image: url('gallery-edc-china-thumb.jpg'); background-size: cover; background-position: center; }
+
+    /* Video modal */
+    .video-modal { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); align-items:center; justify-content:center; }
+    .video-modal.active { display:flex; }
+    .video-modal-inner { position:relative; width:90vw; max-width:960px; aspect-ratio:16/9; }
+    .video-modal-inner iframe,
+    .video-modal-inner video { width:100%; height:100%; border:none; border-radius:var(--radius-md); }
+    .video-modal-close { position:absolute; top:-44px; right:0; background:none; border:none; color:#fff; font-size:28px; cursor:pointer; line-height:1; padding:8px; }
+    .gallery-play-btn { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; z-index:2; opacity:0; transition:opacity var(--dur-med); }
+    .gallery-item:hover .gallery-play-btn { opacity:1; }
+    .gallery-play-btn svg { filter:drop-shadow(0 0 12px rgba(0,0,0,0.8)); }
 
     .gallery-caption {
       position: absolute;
@@ -2027,64 +2020,57 @@
       </div>
 
       <div class="gallery-grid" role="list">
-        <div class="gallery-item reveal" role="listitem">
+        <div class="gallery-item reveal" role="listitem" data-video-type="youtube" data-video-src="OBKI1xWjFoc" style="cursor:pointer;">
           <div class="gallery-bg" aria-hidden="true"></div>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1;" aria-hidden="true">
-            <div style="text-align:center;opacity:0.4;">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="white" stroke="none"/>
-              </svg>
-              <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:white;margin-top:8px;">DJ Booth</div>
-            </div>
-          </div>
+          <div class="gallery-play-btn" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="1"/><path d="M10 8l6 4-6 4V8z" fill="white"/></svg></div>
           <div class="gallery-caption">
             <div class="gallery-caption-title">Behind The Decks</div>
             <div class="gallery-caption-sub">The Club Khaosan, Bangkok</div>
           </div>
         </div>
 
-        <div class="gallery-item reveal reveal-delay-1" role="listitem">
+        <div class="gallery-item reveal reveal-delay-1" role="listitem" data-video-type="youtube" data-video-src="gxf02K0fxAw" style="cursor:pointer;">
           <div class="gallery-bg" aria-hidden="true"></div>
-          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%, rgba(0,102,255,0.25) 0%, transparent 60%);z-index:1;" aria-hidden="true"></div>
+          <div class="gallery-play-btn" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="1"/><path d="M10 8l6 4-6 4V8z" fill="white"/></svg></div>
           <div class="gallery-caption">
-            <div class="gallery-caption-title">Festival Stage</div>
-            <div class="gallery-caption-sub">EDC China 2019</div>
+            <div class="gallery-caption-title">Republic Pattaya</div>
+            <div class="gallery-caption-sub">Pattaya, Thailand</div>
           </div>
         </div>
 
-        <div class="gallery-item reveal reveal-delay-2" role="listitem">
+        <div class="gallery-item reveal reveal-delay-2" role="listitem" data-video-type="local" data-video-src="gallery-pitt-kl.mp4" style="cursor:pointer;">
           <div class="gallery-bg" aria-hidden="true"></div>
-          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%, rgba(139,92,246,0.3) 0%, transparent 60%);z-index:1;" aria-hidden="true"></div>
+          <div class="gallery-play-btn" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="1"/><path d="M10 8l6 4-6 4V8z" fill="white"/></svg></div>
           <div class="gallery-caption">
-            <div class="gallery-caption-title">VIP Experience</div>
-            <div class="gallery-caption-sub">Tomorrowland</div>
+            <div class="gallery-caption-title">PITT Club</div>
+            <div class="gallery-caption-sub">Kuala Lumpur, 2024</div>
           </div>
         </div>
 
-        <div class="gallery-item reveal reveal-delay-1" role="listitem">
+        <div class="gallery-item reveal reveal-delay-1" role="listitem" data-video-type="local" data-video-src="gallery-shoko-barcelona.mp4" style="cursor:pointer;">
           <div class="gallery-bg" aria-hidden="true"></div>
-          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,180,100,0.12) 0%,rgba(0,100,60,0.2) 100%);z-index:1;" aria-hidden="true"></div>
+          <div class="gallery-play-btn" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="1"/><path d="M10 8l6 4-6 4V8z" fill="white"/></svg></div>
           <div class="gallery-caption">
-            <div class="gallery-caption-title">Crowd Energy</div>
-            <div class="gallery-caption-sub">Ultra Music Festival</div>
+            <div class="gallery-caption-title">Shoko Barcelona</div>
+            <div class="gallery-caption-sub">Barcelona, Spain</div>
           </div>
         </div>
 
-        <div class="gallery-item reveal reveal-delay-2" role="listitem">
+        <div class="gallery-item reveal reveal-delay-2" role="listitem" data-video-type="local" data-video-src="gallery-latin-village.mp4" style="cursor:pointer;">
           <div class="gallery-bg" aria-hidden="true"></div>
-          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.2) 0%, transparent 70%);z-index:1;" aria-hidden="true"></div>
+          <div class="gallery-play-btn" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="1"/><path d="M10 8l6 4-6 4V8z" fill="white"/></svg></div>
           <div class="gallery-caption">
-            <div class="gallery-caption-title">Laser Show</div>
-            <div class="gallery-caption-sub">Club Event, Amsterdam</div>
+            <div class="gallery-caption-title">Latin Village</div>
+            <div class="gallery-caption-sub">Festival, 2018</div>
           </div>
         </div>
 
-        <div class="gallery-item reveal reveal-delay-3" role="listitem">
+        <div class="gallery-item reveal reveal-delay-3" role="listitem" data-video-type="local" data-video-src="gallery-edc-china.mp4" style="cursor:pointer;">
           <div class="gallery-bg" aria-hidden="true"></div>
-          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,0,50,0.12) 0%,rgba(100,0,20,0.2) 100%);z-index:1;" aria-hidden="true"></div>
+          <div class="gallery-play-btn" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="1"/><path d="M10 8l6 4-6 4V8z" fill="white"/></svg></div>
           <div class="gallery-caption">
-            <div class="gallery-caption-title">Private Event</div>
-            <div class="gallery-caption-sub">Dubai, UAE</div>
+            <div class="gallery-caption-title">EDC China</div>
+            <div class="gallery-caption-sub">Suzhou, China</div>
           </div>
         </div>
       </div>
@@ -2629,6 +2615,61 @@
       });
     });
 
+  </script>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="video-modal-inner" id="video-modal-inner">
+      <button class="video-modal-close" id="video-modal-close" aria-label="Close video">&#x2715;</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const modal = document.getElementById('video-modal');
+      const inner = document.getElementById('video-modal-inner');
+      const closeBtn = document.getElementById('video-modal-close');
+
+      function openVideo(type, src) {
+        // Remove previous player
+        const old = inner.querySelector('iframe, video');
+        if (old) old.remove();
+
+        if (type === 'youtube') {
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube.com/embed/' + src + '?autoplay=1&rel=0';
+          iframe.allow = 'autoplay; encrypted-media';
+          iframe.allowFullscreen = true;
+          inner.appendChild(iframe);
+        } else {
+          const video = document.createElement('video');
+          video.src = src;
+          video.controls = true;
+          video.autoplay = true;
+          video.style.background = '#000';
+          inner.appendChild(video);
+        }
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeVideo() {
+        const old = inner.querySelector('iframe, video');
+        if (old) old.remove();
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.gallery-item[data-video-src]').forEach(function(item) {
+        item.addEventListener('click', function() {
+          openVideo(this.dataset.videoType, this.dataset.videoSrc);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeVideo);
+      modal.addEventListener('click', function(e) { if (e.target === modal) closeVideo(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeVideo(); });
+    })();
   </script>
 </body>
 </html>
