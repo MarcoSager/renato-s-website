@@ -1035,6 +1035,46 @@
       transition: gap var(--dur-fast);
     }
     .btn-event:hover { gap: 12px; }
+
+    /* Event Flyers grid */
+    .flyers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 220px));
+      gap: 16px;
+      justify-content: start;
+      margin-top: 32px;
+    }
+    .flyer-card {
+      position: relative;
+      aspect-ratio: 3 / 4.24;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .flyer-card:hover { opacity: 0.85; }
+    .flyer-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--ease-out);
+    }
+    .flyer-card:hover img { transform: scale(1.05); }
+    .flyer-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .flyer-card:hover .flyer-card-overlay { opacity: 1; }
+    .flyer-card-overlay svg { color: #fff; }
     .btn-event svg { transition: transform var(--dur-fast); }
     .btn-event:hover svg { transform: translateX(2px); }
 
@@ -1425,7 +1465,12 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.5s var(--ease-out);
     }
+    .instagram-cell:hover .instagram-cell-inner img { transform: scale(1.08); }
+    .instagram-grid .instagram-cell:nth-child(3n+1) { transition-delay: 0ms; }
+    .instagram-grid .instagram-cell:nth-child(3n+2) { transition-delay: 80ms; }
+    .instagram-grid .instagram-cell:nth-child(3n)   { transition-delay: 160ms; }
     .instagram-cell-overlay {
       position: absolute;
       inset: 0;
@@ -1560,10 +1605,23 @@
       transition: transform var(--dur-fast), box-shadow var(--dur-fast);
       text-decoration: none;
     }
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 100px;
+      background: #25D366;
+      animation: whatsapp-ping 2.4s var(--ease-out) infinite;
+    }
+    @keyframes whatsapp-ping {
+      0%   { opacity: 0.55; transform: scale(1); }
+      100% { opacity: 0;    transform: scale(1.35); }
+    }
     .whatsapp-float:hover {
       transform: translateY(-3px) scale(1.02);
       box-shadow: 0 16px 48px rgba(37,211,102,0.5);
     }
+    .whatsapp-float:hover::before { animation-play-state: paused; opacity: 0; }
     .whatsapp-float span { display: none; }
 
     /* ============================================================
@@ -1733,7 +1791,7 @@
 
         <div class="nav-right">
           <div class="nav-socials">
-            <a href="https://www.instagram.com/renato_s_official" target="_blank" rel="noopener" aria-label="Instagram">
+            <a href="https://www.instagram.com/djrenato_s" target="_blank" rel="noopener" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
             </a>
             <a href="https://www.tiktok.com/@renato_s_dj" target="_blank" rel="noopener" aria-label="TikTok">
@@ -1798,15 +1856,7 @@
               </svg>
             </span>
           </a>
-          <a href="#music" class="btn-ghost" aria-label="Watch live set">
-            <span class="btn-icon" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                <path d="M3 2l5 3-5 3V2z" fill="currentColor"/>
-              </svg>
-            </span>
-            Watch Live Set
-          </a>
-          <a href="epk.pdf" download="Renato-S-EPK.pdf" class="btn-epk" aria-label="Download Electronic Press Kit">
+          <a href="https://drive.google.com/drive/folders/1ONC0k6t-jdkzp1Qp9-qBvbgwloTvq4Rq?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-epk" aria-label="Download Electronic Press Kit">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
@@ -1831,7 +1881,7 @@
     <div class="container">
       <div class="stats-grid" role="list">
         <div class="stat-item reveal" role="listitem">
-          <div class="stat-number" aria-label="13 plus years experience">
+          <div class="stat-number" aria-label="16 plus years experience">
             <span id="stat-years">0</span><span>+</span>
           </div>
           <div class="stat-label">Years Experience</div>
@@ -1843,7 +1893,7 @@
           <div class="stat-label">Shows Played</div>
         </div>
         <div class="stat-item reveal reveal-delay-2" role="listitem">
-          <div class="stat-number" aria-label="30 plus countries performed in">
+          <div class="stat-number" aria-label="50 plus countries performed in">
             <span id="stat-countries">0</span><span>+</span>
           </div>
           <div class="stat-label">Countries</div>
@@ -1866,6 +1916,10 @@
         <div class="logo-chip" role="listitem">KLASH</div>
         <div class="logo-chip" role="listitem">+31 MUSIC</div>
         <div class="logo-chip" role="listitem">G-REX MUSIC</div>
+        <div class="logo-chip" role="listitem">DRAGON X RECORDS</div>
+        <div class="logo-chip" role="listitem">NEXCHAPTER</div>
+        <div class="logo-chip" role="listitem">LOUDKULT</div>
+        <div class="logo-chip" role="listitem">48K RECORDS</div>
       </div>
     </div>
   </section>
@@ -1891,6 +1945,14 @@
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-filled">G-REX MUSIC</span>
         <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-filled">DRAGON X RECORDS</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-filled">NEXCHAPTER</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-filled">LOUDKULT</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-filled">48K RECORDS</span>
+        <span class="ticker-sep">✦</span>
         <!-- duplicate for seamless loop -->
         <span class="ticker-item ticker-filled">SPINNIN' RECORDS</span>
         <span class="ticker-sep">✦</span>
@@ -1905,6 +1967,14 @@
         <span class="ticker-item ticker-filled">KLASH</span>
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-filled">G-REX MUSIC</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-filled">DRAGON X RECORDS</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-filled">NEXCHAPTER</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-filled">LOUDKULT</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-filled">48K RECORDS</span>
         <span class="ticker-sep">✦</span>
       </div>
     </div>
@@ -1925,6 +1995,14 @@
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-outline">KLASH</span>
         <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-outline">DRAGON X RECORDS</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-outline">NEXCHAPTER</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-outline">LOUDKULT</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-outline">48K RECORDS</span>
+        <span class="ticker-sep">✦</span>
         <!-- duplicate -->
         <span class="ticker-item ticker-outline">SMASH THE HOUSE</span>
         <span class="ticker-sep">✦</span>
@@ -1939,6 +2017,14 @@
         <span class="ticker-item ticker-outline">G-REX MUSIC</span>
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-outline">KLASH</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-outline">DRAGON X RECORDS</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-outline">NEXCHAPTER</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-outline">LOUDKULT</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item ticker-outline">48K RECORDS</span>
         <span class="ticker-sep">✦</span>
       </div>
     </div>
@@ -1956,10 +2042,10 @@
             Not Just <span class="gradient-text">Music.</span><br>An Experience.
           </h2>
           <p class="about-body reveal reveal-delay-2">
-            From <strong>Amsterdam to Bangkok</strong>, Renato S has spent 13+ years mastering the art of crowd control — reading a room, building tension, and releasing it at exactly the right moment. Resident DJ at <strong>The Club Khaosan</strong>, DJ Mag's Top Club #71 in the world.
+            From <strong>Amsterdam to Bangkok</strong>, Renato S has spent 16+ years mastering the art of crowd control — reading a room, building tension, and releasing it at exactly the right moment. Resident DJ at <strong>The Club Khaosan</strong>, DJ Mag's Top Club #71 in the world.
           </p>
           <p class="about-body reveal reveal-delay-3" style="margin-bottom:0">
-            Supported by <strong>David Guetta, Hardwell, Steve Aoki</strong> and played across <strong>30+ countries</strong> — from Tomorrowland to Ultra, from Tokyo to Cancun. Every set is engineered for one outcome: you don't forget it.
+            Supported by <strong>David Guetta, Hardwell, Steve Aoki</strong> and played across <strong>50+ countries</strong> — from Tomorrowland to Ultra, from Tokyo to Cancun. Every set is engineered for one outcome: you don't forget it.
           </p>
           <div class="about-tags reveal reveal-delay-4">
             <span class="about-tag">EDM</span>
@@ -2180,6 +2266,13 @@
           </a>
         </article>
       </div>
+
+      <div class="flyers-grid" role="list">
+        <a href="img-flyer-rimlay-beach-party.jpg" target="_blank" rel="noopener noreferrer" class="flyer-card reveal" role="listitem" aria-label="View flyer: Rimlay Beach Party, Samila Beach Songkhla, Aug 1 2026">
+          <img src="img-flyer-rimlay-beach-party.jpg" alt="Rimlay Beach Party flyer — Samila Beach, Songkhla, Aug 1 2026">
+          <div class="flyer-card-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -2394,28 +2487,76 @@
       <!-- Option 2: Elfsight (free tier) — sign up at elfsight.com/instagram-feed, copy embed code here -->
 
       <div class="instagram-grid">
-        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell" aria-label="Brave Bar Mandalay">
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Brave Bar Mandalay">
           <div class="instagram-cell-inner"><img src="img-brave-bar-opt.jpg" alt="Brave Bar, Mandalay"></div>
           <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
         </a>
-        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell" aria-label="Insanity Nightclub Bangkok">
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Insanity Nightclub Bangkok">
           <div class="instagram-cell-inner"><img src="img-insanity-opt.jpg" alt="Insanity Nightclub Bangkok"></div>
           <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
         </a>
-        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell" aria-label="DUPLEX Prague">
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="DUPLEX Prague">
           <div class="instagram-cell-inner"><img src="img-duplex-opt.jpg" alt="DUPLEX Prague"></div>
           <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
         </a>
-        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell" aria-label="Retro Music Hall Prague">
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Retro Music Hall Prague">
           <div class="instagram-cell-inner"><img src="img-retro-prague-opt.jpg" alt="Retro Music Hall Prague"></div>
           <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
         </a>
-        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell" aria-label="Theatro Marrakech">
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Theatro Marrakech">
           <div class="instagram-cell-inner"><img src="img-theatro.jpg" alt="Theatro Marrakech"></div>
           <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
         </a>
-        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell" aria-label="Cartel Events Slovakia">
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Cartel Events Slovakia">
           <div class="instagram-cell-inner"><img src="img-cartel-opt.jpg" alt="Cartel Events Slovakia"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="PITT Club Kuala Lumpur">
+          <div class="instagram-cell-inner"><img src="img-pitt-club-kl-opt.jpg" alt="PITT Club, Kuala Lumpur"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Ultra Festival Europe">
+          <div class="instagram-cell-inner"><img src="img-ultra-festival-opt.jpg" alt="Ultra Festival, Europe"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="World House Pattaya">
+          <div class="instagram-cell-inner"><img src="img-world-house-pattaya-opt.jpg" alt="World House, Pattaya"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Songkran Hat Yai">
+          <div class="instagram-cell-inner"><img src="img-songkran-hatyai-opt.jpg" alt="Songkran, Hat Yai"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Shoko Barcelona">
+          <div class="instagram-cell-inner"><img src="img-shoko-barcelona-photo-opt.jpg" alt="Shoko, Barcelona"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Mandala Beach Cancun Mexico">
+          <div class="instagram-cell-inner"><img src="img-mandala-beach-cancun-opt.jpg" alt="Mandala Beach, Cancun, Mexico"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="EDC China Suzhou">
+          <div class="instagram-cell-inner"><img src="img-edc-china-suzhou-opt.jpg" alt="EDC China, Suzhou"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Para Club Macau">
+          <div class="instagram-cell-inner"><img src="img-para-club-macau-opt.jpg" alt="Para Club, Macau"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Noa Beach Club Croatia">
+          <div class="instagram-cell-inner"><img src="img-noa-beach-croatia-opt.jpg" alt="Noa Beach Club, Croatia"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Yang Club Singapore">
+          <div class="instagram-cell-inner"><img src="img-yang-club-singapore-opt.jpg" alt="Yang Club, Singapore"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Club Catwalk Guangzhou">
+          <div class="instagram-cell-inner"><img src="img-club-catwalk-guangzhou-opt.jpg" alt="Club Catwalk, Guangzhou"></div>
+          <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        </a>
+        <a href="https://instagram.com/djrenato_s" target="_blank" rel="noopener noreferrer" class="instagram-cell reveal" aria-label="Tang Club Huizhou">
+          <div class="instagram-cell-inner"><img src="img-tang-club-huizhou-opt.jpg" alt="Tang Club, Huizhou"></div>
           <div class="instagram-cell-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
         </a>
       </div>
@@ -2446,7 +2587,7 @@
           <h4>Follow</h4>
           <div class="social-icons" role="list">
             <!-- Instagram -->
-            <a href="https://instagram.com" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer" role="listitem">
+            <a href="https://www.instagram.com/djrenato_s" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer" role="listitem">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
@@ -2567,9 +2708,9 @@
     const statsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          animateCounter(document.getElementById('stat-years'),     13,   1200);
+          animateCounter(document.getElementById('stat-years'),     16,   1200);
           animateCounter(document.getElementById('stat-shows'),     1000, 1600);
-          animateCounter(document.getElementById('stat-countries'), 30,   1400);
+          animateCounter(document.getElementById('stat-countries'), 50,   1400);
           statsObserver.disconnect();
         }
       });
