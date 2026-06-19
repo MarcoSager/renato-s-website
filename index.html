@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Renato S — International DJ & Nightlife Entertainment. Luxury events, club residencies, festivals worldwide." />
-  <title>Renato S — International DJ &amp; Nightlife Entertainment</title>
+  <meta name="description" content="Renato S, International DJ & Nightlife Entertainment. Luxury events, club residencies, festivals worldwide." />
+  <title>Renato S, International DJ &amp; Nightlife Entertainment</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23060606'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='32' fill='%23D4AF37'>RS</text></svg>" />
@@ -1037,24 +1037,34 @@
     .btn-event:hover { gap: 12px; }
 
     /* Event Flyers grid */
+    .flyers-header { margin-top: 56px; margin-bottom: 0; }
     .flyers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 220px));
-      gap: 16px;
-      justify-content: start;
-      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 24px;
+    }
+    .flyer-item {
+      width: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
     .flyer-card {
       position: relative;
       aspect-ratio: 3 / 4.24;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
       border: 1px solid var(--border);
       display: block;
       cursor: pointer;
-      transition: opacity 0.3s;
+      transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
     }
-    .flyer-card:hover { opacity: 0.85; }
+    .flyer-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(212,175,55,0.18);
+    }
     .flyer-card img {
       width: 100%;
       height: 100%;
@@ -1134,6 +1144,8 @@
     }
 
     .track-art {
+      position: relative;
+      overflow: hidden;
       width: 56px; height: 56px;
       border-radius: var(--radius-sm);
       flex-shrink: 0;
@@ -1141,7 +1153,19 @@
       align-items: center;
       justify-content: center;
     }
-    .track-art:nth-child(1) { background: linear-gradient(135deg, #001133, #0066FF); }
+    .track-art img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .track-art::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+    }
 
     .play-btn {
       width: 36px; height: 36px;
@@ -1841,12 +1865,6 @@
 
     <div class="container">
       <div class="hero-content">
-        <div class="hero-tag" aria-label="Available for bookings worldwide">
-          Available Worldwide
-        </div>
-
-
-
         <div class="hero-actions">
           <a href="#booking" class="btn-primary" aria-label="Book Renato S for your event">
             Book Now
@@ -1915,7 +1933,7 @@
         <div class="logo-chip" role="listitem">MIXMASH</div>
         <div class="logo-chip" role="listitem">KLASH</div>
         <div class="logo-chip" role="listitem">+31 MUSIC</div>
-        <div class="logo-chip" role="listitem">G-REX MUSIC</div>
+        <div class="logo-chip" role="listitem">GREX MUSIC</div>
         <div class="logo-chip" role="listitem">DRAGON X RECORDS</div>
         <div class="logo-chip" role="listitem">NEXCHAPTER</div>
         <div class="logo-chip" role="listitem">LOUDKULT</div>
@@ -1943,7 +1961,7 @@
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-filled">KLASH</span>
         <span class="ticker-sep">✦</span>
-        <span class="ticker-item ticker-filled">G-REX MUSIC</span>
+        <span class="ticker-item ticker-filled">GREX MUSIC</span>
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-filled">DRAGON X RECORDS</span>
         <span class="ticker-sep">✦</span>
@@ -1966,7 +1984,7 @@
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-filled">KLASH</span>
         <span class="ticker-sep">✦</span>
-        <span class="ticker-item ticker-filled">G-REX MUSIC</span>
+        <span class="ticker-item ticker-filled">GREX MUSIC</span>
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-filled">DRAGON X RECORDS</span>
         <span class="ticker-sep">✦</span>
@@ -1991,7 +2009,7 @@
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-outline">WARNER CHAPPELL</span>
         <span class="ticker-sep">✦</span>
-        <span class="ticker-item ticker-outline">G-REX MUSIC</span>
+        <span class="ticker-item ticker-outline">GREX MUSIC</span>
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-outline">KLASH</span>
         <span class="ticker-sep">✦</span>
@@ -2014,7 +2032,7 @@
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-outline">WARNER CHAPPELL</span>
         <span class="ticker-sep">✦</span>
-        <span class="ticker-item ticker-outline">G-REX MUSIC</span>
+        <span class="ticker-item ticker-outline">GREX MUSIC</span>
         <span class="ticker-sep">✦</span>
         <span class="ticker-item ticker-outline">KLASH</span>
         <span class="ticker-sep">✦</span>
@@ -2042,10 +2060,10 @@
             Not Just <span class="gradient-text">Music.</span><br>An Experience.
           </h2>
           <p class="about-body reveal reveal-delay-2">
-            From <strong>Amsterdam to Bangkok</strong>, Renato S has spent 16+ years mastering the art of crowd control — reading a room, building tension, and releasing it at exactly the right moment. Resident DJ at <strong>The Club Khaosan</strong>, DJ Mag's Top Club #71 in the world.
+            From <strong>Amsterdam to Bangkok</strong>, Renato S has spent 16+ years mastering the art of crowd control: reading a room, building tension, and releasing it at exactly the right moment. Resident DJ at <strong>The Club Khaosan</strong>, DJ Mag's Top Club #71 in the world.
           </p>
           <p class="about-body reveal reveal-delay-3" style="margin-bottom:0">
-            Supported by <strong>David Guetta, Hardwell, Steve Aoki</strong> and played across <strong>50+ countries</strong> — from Tomorrowland to Ultra, from Tokyo to Cancun. Every set is engineered for one outcome: you don't forget it.
+            Supported by <strong>David Guetta, Hardwell, Steve Aoki</strong> and played across <strong>50+ countries</strong>, from Tomorrowland to Ultra, from Tokyo to Cancun. Every set is engineered for one outcome: you don't forget it.
           </p>
           <div class="about-tags reveal reveal-delay-4">
             <span class="about-tag">EDM</span>
@@ -2058,12 +2076,15 @@
           <div class="about-signature reveal" style="margin-top:36px" aria-label="Renato S logo">
             <img src="renato-logo.png" alt="Renato S" style="height:60px;width:auto;">
           </div>
+          <div class="hero-tag reveal" style="margin-top:16px;margin-bottom:0" aria-label="Available for bookings worldwide">
+            Available Worldwide
+          </div>
         </div>
 
         <div class="about-visual reveal reveal-delay-2" aria-label="Renato S press photo">
           <img
             src="img-presentation-opt.jpg"
-            alt="Renato S — International DJ"
+            alt="Renato S, International DJ"
             class="about-portrait"
           />
           <div class="about-visual-inner">
@@ -2079,7 +2100,7 @@
               </div>
               <div>
                 <div class="badge-text-main">DJ Mag Top 100 Club Resident</div>
-                <div class="badge-text-sub">The Club Khaosan Bangkok — #64 Worldwide</div>
+                <div class="badge-text-sub">The Club Khaosan Bangkok, #64 Worldwide</div>
               </div>
             </div>
           </div>
@@ -2108,7 +2129,7 @@
         <h2 class="section-title reveal reveal-delay-1">
           Feel The <span class="gradient-text-blue">Energy</span>
         </h2>
-        <p class="reveal reveal-delay-2">From intimate VIP tables to 50,000-capacity festival stages — every show is a different world.</p>
+        <p class="reveal reveal-delay-2">From intimate VIP tables to 50,000 capacity festival stages, every show is a different world.</p>
       </div>
 
       <div class="gallery-grid" role="list">
@@ -2267,11 +2288,20 @@
         </article>
       </div>
 
+      <div class="flyers-header">
+        <p class="section-label reveal">Official Flyers</p>
+      </div>
       <div class="flyers-grid" role="list">
-        <a href="img-flyer-rimlay-beach-party.jpg" target="_blank" rel="noopener noreferrer" class="flyer-card reveal" role="listitem" aria-label="View flyer: Rimlay Beach Party, Samila Beach Songkhla, Aug 1 2026">
-          <img src="img-flyer-rimlay-beach-party.jpg" alt="Rimlay Beach Party flyer — Samila Beach, Songkhla, Aug 1 2026">
-          <div class="flyer-card-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        </a>
+        <div class="flyer-item reveal" role="listitem">
+          <a href="img-flyer-rimlay-beach-party.jpg" target="_blank" rel="noopener noreferrer" class="flyer-card" aria-label="View flyer: Rimlay Beach Party, Samila Beach Songkhla, Aug 1 2026">
+            <img src="img-flyer-rimlay-beach-party.jpg" alt="Rimlay Beach Party flyer, Samila Beach, Songkhla, Aug 1 2026">
+            <div class="flyer-card-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          </a>
+          <div>
+            <div class="gallery-caption-title" style="color:var(--text-primary)">Rimlay Beach Party</div>
+            <div class="gallery-caption-sub">Samila Beach, Songkhla · Aug 1, 2026</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2305,7 +2335,8 @@
       <!-- Track Cards -->
       <div class="tracks-grid" role="list">
         <div class="track-card reveal" role="listitem">
-          <div class="track-art" style="background:linear-gradient(135deg,#001133,#0066FF);" aria-hidden="true">
+          <div class="track-art" aria-hidden="true">
+            <img src="img-track-ragnarok.jpg" alt="">
             <div class="play-btn" aria-label="Play track">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>
             </div>
@@ -2320,7 +2351,8 @@
         </div>
 
         <div class="track-card reveal reveal-delay-1" role="listitem">
-          <div class="track-art" style="background:linear-gradient(135deg,#1a0066,#8B5CF6);" aria-hidden="true">
+          <div class="track-art" aria-hidden="true">
+            <img src="img-track-heist.jpg" alt="">
             <div class="play-btn" aria-label="Play track">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>
             </div>
@@ -2335,7 +2367,8 @@
         </div>
 
         <div class="track-card reveal reveal-delay-2" role="listitem">
-          <div class="track-art" style="background:linear-gradient(135deg,#331100,#D4AF37);" aria-hidden="true">
+          <div class="track-art" aria-hidden="true">
+            <img src="img-track-turn-the-place-up.jpg" alt="">
             <div class="play-btn" aria-label="Play track">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>
             </div>
@@ -2373,7 +2406,7 @@
           </div>
           <div class="testimonial-quote-mark" aria-hidden="true">"</div>
           <p class="testimonial-text">
-            Renato has been our resident for 3 years and continues to deliver every single Saturday night. The crowd never leaves before he finishes. That's the mark of a world-class DJ.
+            Renato has been our resident for 3 years and continues to deliver every single Saturday night. The crowd never leaves before he finishes. That's the mark of a world class DJ.
           </p>
           <div class="testimonial-divider"></div>
           <div class="testimonial-author-name">Club Management</div>
@@ -2390,7 +2423,7 @@
           </div>
           <div class="testimonial-quote-mark" aria-hidden="true">"</div>
           <p class="testimonial-text">
-            We booked Renato for our New Year's event in Amsterdam. He read the room perfectly — built the energy from the first set and had 2,000 people in the palm of his hand by midnight. Exceptional professional.
+            We booked Renato for our New Year's event in Amsterdam. He read the room perfectly, built the energy from the first set, and had 2,000 people in the palm of his hand by midnight. Exceptional professional.
           </p>
           <div class="testimonial-divider"></div>
           <div class="testimonial-author-name">Marco van den Berg</div>
