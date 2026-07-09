@@ -1855,7 +1855,7 @@
   ============================================================ -->
   <section id="hero" aria-label="Hero">
     <div class="hero-video-wrap" aria-hidden="true">
-      <video autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg">
+      <video id="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="hero-poster.jpg">
         <source src="hero-bg.mp4" type="video/mp4">
       </video>
     </div>
@@ -2681,6 +2681,20 @@
        JAVASCRIPT
   ============================================================ -->
   <script>
+    // ---- Hero video autoplay fallback (in-app browsers/iOS often reject the initial play() promise) ----
+    (function () {
+      const heroVideo = document.getElementById('hero-video');
+      if (!heroVideo) return;
+      function tryPlay() {
+        if (heroVideo.paused) heroVideo.play().catch(() => {});
+      }
+      tryPlay();
+      document.addEventListener('visibilitychange', tryPlay);
+      ['touchstart', 'click', 'scroll'].forEach((evt) =>
+        document.addEventListener(evt, tryPlay, { once: true, passive: true })
+      );
+    })();
+
     // ---- Nav scroll effect ----
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
